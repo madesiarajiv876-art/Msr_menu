@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mountain Shadow Resort — In Room Dining Menu. Curated flavours delivered to your retreat at Pardevi Hills, Igatpuri.">
+<title>Mountain Shadow Resort — In Room Dining</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0d0c0a;
+  --bg2:#131210;
+  --bg3:#1a1814;
+  --bg4:#222018;
+  --bg5:#2a271f;
+  --gold:#c8a55a;
+  --gold2:#e2c47a;
+  --gold3:rgba(200,165,90,0.15);
+  --cream:#f0eadc;
+  --text1:#ede8de;
+  --text2:#9a9080;
+  --text3:#6a6258;
+  --border:rgba(200,165,90,0.12);
+  --border2:rgba(200,165,90,0.28);
+  --shadow:0 4px 32px rgba(0,0,0,0.5);
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--text1);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Grain texture overlay */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:1000;
+  opacity:0.4;
+}
+
+/* ───── HEADER ───── */
+.header{
+  position:fixed;top:0;left:0;right:0;
+  z-index:500;
+  padding:0 2.5rem;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background 0.5s ease,border-color 0.5s ease;
+}
+.header.scrolled{
+  background:rgba(13,12,10,0.94);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;font-weight:600;
+  color:var(--gold);letter-spacing:0.04em;
+}
+.logo-sub{
+  font-size:0.58rem;letter-spacing:0.38em;
+  text-transform:uppercase;color:var(--text3);
+  margin-top:3px;font-weight:400;
+}
+
+.header-right{display:flex;align-items:center;gap:1rem}
+
+.btn-wa{
+  display:flex;align-items:center;gap:7px;
+  padding:8px 18px;
+  background:transparent;
+  border:1px solid var(--border2);
+  border-radius:40px;
+  color:var(--gold);
+  font-size:0.72rem;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;
+  transition:all 0.3s ease;white-space:nowrap;
+}
+.btn-wa:hover{background:var(--gold3);border-color:var(--gold)}
+.btn-wa svg{width:15px;height:15px;flex-shrink:0}
+.btn-wa .lbl{display:inline}
+
+/* ───── HERO ───── */
+.hero{
+  position:relative;height:100vh;min-height:620px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+
+.hero-img{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80') center/cover no-repeat;
+  transform:scale(1.06);
+  will-change:transform;
+}
+.hero-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,12,10,.32) 0%,rgba(13,12,10,.58) 45%,rgba(13,12,10,.9) 100%);
+}
+/* Cinematic vignette */
+.hero-img::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.55) 100%);
+  z-index:1;
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;padding:0 2rem;
+  max-width:720px;
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:0.68rem;letter-spacing:0.4em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.8rem;
+  opacity:0;transform:translateY(18px);
+  animation:fu 1s ease 0.2s forwards;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:'';display:block;width:28px;height:1px;
+  background:var(--gold);opacity:0.6;
+}
+
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.2rem,8.5vw,6.5rem);
+  font-weight:300;line-height:1.02;
+  color:var(--cream);
+  margin-bottom:1.5rem;
+  opacity:0;transform:translateY(18px);
+  animation:fu 1s ease 0.45s forwards;
+}
+.hero-title em{font-style:italic;color:var(--gold2)}
+
+.hero-tagline{
+  font-size:0.95rem;font-weight:300;
+  letter-spacing:0.06em;
+  color:rgba(240,234,220,0.65);
+  margin-bottom:2.8rem;line-height:1.7;
+  opacity:0;transform:translateY(18px);
+  animation:fu 1s ease 0.65s forwards;
+}
+
+.hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 38px;
+  background:var(--gold);border:none;border-radius:40px;
+  color:var(--bg);
+  font-family:'Outfit',sans-serif;
+  font-size:0.75rem;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;
+  transition:all 0.35s cubic-bezier(.25,.8,.25,1);
+  opacity:0;transform:translateY(18px);
+  animation:fu 1s ease 0.85s forwards;
+}
+.hero-cta:hover{
+  background:var(--gold2);
+  transform:translateY(-3px);
+  box-shadow:0 14px 48px rgba(200,165,90,.38);
+}
+.hero-cta svg{width:14px;height:14px}
+
+.scroll-hint{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  opacity:0;animation:fu 0.8s ease 1.3s forwards;
+}
+.scroll-hint span{font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--text3)}
+.scroll-line{width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:spulse 2.2s ease infinite}
+@keyframes spulse{0%,100%{opacity:.3}50%{opacity:.9}}
+
+/* ───── HOURS BAR ───── */
+.hours-bar{
+  background:var(--bg3);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:1rem 2.5rem;overflow-x:auto;
+  scrollbar-width:none;
+}
+.hours-bar::-webkit-scrollbar{display:none}
+.hours-inner{
+  display:flex;align-items:center;justify-content:center;
+  gap:1.25rem;min-width:max-content;margin:0 auto;
+}
+.hrs-item{display:flex;flex-direction:column;align-items:center;gap:2px}
+.hrs-lbl{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hrs-time{font-size:0.79rem;color:var(--text2);font-weight:300}
+.hrs-sep{width:1px;height:28px;background:var(--border);flex-shrink:0}
+
+/* ───── CATEGORY NAV ───── */
+.cat-nav-wrap{
+  position:sticky;top:0;z-index:400;
+  background:rgba(13,12,10,.95);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.cat-nav{
+  display:flex;overflow-x:auto;scrollbar-width:none;
+  max-width:1300px;margin:0 auto;
+  padding:0 1.5rem;
+}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-btn{
+  flex-shrink:0;
+  padding:0.95rem 1.4rem;
+  background:none;border:none;
+  border-bottom:2px solid transparent;
+  color:var(--text3);
+  font-family:'Outfit',sans-serif;
+  font-size:0.7rem;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;
+  cursor:pointer;white-space:nowrap;
+  transition:color 0.3s ease,border-color 0.3s ease;
+}
+.cat-btn:hover{color:var(--text1)}
+.cat-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ───── SEARCH ───── */
+.search-wrap{
+  max-width:1300px;margin:0 auto;
+  padding:3rem 2.5rem 0;
+}
+.search-box{position:relative;max-width:440px}
+.search-box svg{
+  position:absolute;left:16px;top:50%;transform:translateY(-50%);
+  color:var(--text3);pointer-events:none;
+}
+.search-input{
+  width:100%;padding:11px 18px 11px 46px;
+  background:var(--bg3);
+  border:1px solid var(--border);border-radius:40px;
+  color:var(--text1);
+  font-family:'Outfit',sans-serif;font-size:0.84rem;font-weight:300;
+  letter-spacing:0.04em;outline:none;
+  transition:border-color 0.3s ease,background 0.3s ease;
+}
+.search-input::placeholder{color:var(--text3)}
+.search-input:focus{border-color:var(--border2);background:var(--bg4)}
+
+/* ───── MENU SECTIONS ───── */
+.menu-wrap{max-width:1300px;margin:0 auto;padding:0 2.5rem 6rem}
+
+.menu-section{padding-top:5rem;scroll-margin-top:116px}
+
+.sec-divider{
+  display:flex;align-items:center;gap:1.5rem;
+  margin-bottom:0;padding-top:0;
+}
+.div-line{flex:1;height:1px;background:var(--border)}
+.div-gem{
+  color:var(--gold);opacity:0.5;
+  font-family:'Cormorant Garamond',serif;font-size:1.1rem;
+}
+
+.sec-header{
+  position:relative;margin:2.5rem 0 2.8rem;
+  padding-bottom:2rem;
+}
+.sec-header::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:48px;height:1px;background:var(--gold);
+}
+.sec-eyebrow{
+  display:block;font-size:0.63rem;
+  letter-spacing:0.38em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:0.8rem;font-weight:500;
+}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,4.5vw,3.8rem);
+  font-weight:300;color:var(--cream);line-height:1.08;
+}
+.sec-title em{font-style:italic;color:var(--gold2)}
+.sec-tagline{
+  margin-top:0.8rem;font-size:0.83rem;
+  font-weight:300;color:var(--text3);letter-spacing:0.04em;
+}
+
+/* ───── MENU GRID ───── */
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;
+}
+
+.menu-item{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:1.25rem;
+  padding:1.2rem 1.5rem;
+  background:var(--bg2);
+  cursor:default;
+  opacity:0;transform:translateY(10px);
+  transition:opacity 0.5s ease,transform 0.5s ease,background 0.25s ease;
+}
+.menu-item.in{opacity:1;transform:translateY(0)}
+.menu-item:hover{background:var(--bg3)}
+.menu-item.hidden{display:none!important}
+
+.item-body{flex:1;min-width:0}
+.item-top{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px}
+
+.veg-dot{
+  width:13px;height:13px;flex-shrink:0;margin-top:2px;
+  border:1.5px solid #4caf50;border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+}
+.veg-dot::after{
+  content:'';width:5px;height:5px;
+  border-radius:50%;background:#4caf50;
+}
+
+.item-name{
+  font-size:0.88rem;font-weight:500;
+  color:var(--text1);letter-spacing:0.02em;
+  line-height:1.35;
+}
+
+.item-desc{
+  font-size:0.76rem;color:var(--text3);
+  font-weight:300;line-height:1.6;margin-bottom:6px;
+}
+
+.item-badges{display:flex;flex-wrap:wrap;gap:4px}
+.badge{
+  font-size:0.58rem;letter-spacing:0.08em;
+  text-transform:uppercase;padding:2px 8px;
+  border-radius:20px;font-weight:600;
+}
+.b-chef{background:rgba(200,165,90,.1);color:var(--gold);border:1px solid rgba(200,165,90,.25)}
+.b-pop{background:rgba(167,139,250,.08);color:#b39ddb;border:1px solid rgba(167,139,250,.2)}
+.b-spicy{background:rgba(239,100,80,.08);color:#ef9a9a;border:1px solid rgba(239,100,80,.18)}
+
+.item-price-wrap{flex-shrink:0;text-align:right;padding-top:1px}
+.item-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.08rem;font-weight:500;color:var(--gold);
+  white-space:nowrap;display:block;
+}
+
+/* Divider row inside grid */
+.grid-divider{
+  grid-column:1 / -1;
+  padding:0.7rem 1.5rem;
+  background:var(--bg3);
+  border-top:1px solid var(--border);
+}
+.grid-divider span{
+  font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;
+}
+
+/* ───── NOTES CARD ───── */
+.notes-card{
+  margin:4rem 0 0;
+  padding:1.75rem 2rem;
+  background:var(--bg3);
+  border:1px solid var(--border);border-radius:10px;
+  display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;
+}
+.notes-title{
+  grid-column:1 / -1;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-style:italic;
+  color:var(--gold);margin-bottom:0.5rem;
+}
+.note-row{
+  display:flex;align-items:flex-start;gap:0.6rem;
+  font-size:0.79rem;color:var(--text2);font-weight:300;line-height:1.5;
+}
+.note-row::before{content:'·';color:var(--gold);font-size:1.2rem;line-height:1.1;flex-shrink:0}
+
+/* ───── FOOTER ───── */
+.footer{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:4.5rem 2.5rem 3rem;
+}
+.footer-top{
+  max-width:1300px;margin:0 auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3.5rem;align-items:start;
+  padding-bottom:3rem;
+  border-bottom:1px solid var(--border);
+}
+.ft-brand{}
+.ft-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:300;font-style:italic;
+  color:var(--gold);line-height:1;
+}
+.ft-logo-sub{
+  font-size:0.58rem;letter-spacing:0.4em;
+  text-transform:uppercase;color:var(--text3);
+  margin-top:5px;display:block;
+}
+.ft-divider{width:44px;height:1px;background:var(--border2);margin:1.5rem 0}
+.ft-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-style:italic;color:var(--text2);
+  line-height:1.6;
+}
+.ft-col-title{
+  font-size:0.62rem;letter-spacing:0.28em;
+  text-transform:uppercase;color:var(--gold);
+  font-weight:600;margin-bottom:1.25rem;
+}
+.ft-text{
+  font-size:0.81rem;color:var(--text2);
+  font-weight:300;line-height:1.9;
+}
+.ft-link{color:var(--text2);text-decoration:none;transition:color 0.3s ease}
+.ft-link:hover{color:var(--gold)}
+
+.footer-bottom{
+  max-width:1300px;margin:2.5rem auto 0;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:0.75rem;
+}
+.ft-bot-text{font-size:0.7rem;color:var(--text3);font-weight:300}
+
+/* ───── FLOAT WA ───── */
+.float-wa{
+  position:fixed;bottom:1.8rem;right:1.8rem;
+  z-index:600;
+  display:flex;align-items:center;gap:9px;
+  padding:13px 20px;
+  background:#25d366;border-radius:50px;
+  color:#fff;text-decoration:none;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.06em;
+  box-shadow:0 8px 36px rgba(37,211,102,.38);
+  transition:all 0.35s cubic-bezier(.25,.8,.25,1);
+  opacity:0;transform:translateY(16px);
+  animation:fu 0.8s ease 1.6s forwards;
+}
+.float-wa:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 52px rgba(37,211,102,.48);
+}
+.float-wa svg{width:18px;height:18px;flex-shrink:0}
+.float-wa .lbl{display:inline}
+
+/* ───── NO RESULTS ───── */
+.no-results{
+  display:none;text-align:center;
+  padding:5rem 2rem;
+  max-width:1300px;margin:0 auto;
+}
+.no-results.show{display:block}
+.no-results-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-style:italic;color:var(--text2);
+  margin-bottom:0.5rem;
+}
+.no-results-sub{font-size:0.85rem;color:var(--text3)}
+
+/* ───── ANIMATIONS ───── */
+@keyframes fu{to{opacity:1;transform:translateY(0)}}
+
+/* ───── RESPONSIVE ───── */
+@media(max-width:900px){
+  .footer-top{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .ft-brand{grid-column:1 / -1}
+}
+@media(max-width:640px){
+  .header{padding:0 1.25rem}
+  .btn-wa .lbl{display:none}
+  .hero-title{font-size:3rem}
+  .hours-bar{padding:0.9rem 1.25rem}
+  .cat-nav{padding:0 0.75rem}
+  .cat-btn{padding:0.85rem 1rem;font-size:0.66rem}
+  .search-wrap{padding:2rem 1.25rem 0}
+  .menu-wrap{padding:0 1.25rem 5rem}
+  .menu-grid{grid-template-columns:1fr}
+  .notes-card{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:2rem}
+  .footer{padding:3rem 1.25rem 2rem}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .float-wa .lbl{display:none}
+  .float-wa{padding:14px;border-radius:50%}
+}
+</style>
+</head>
+<body>
+
+<!-- ░░ HEADER ░░ -->
+<header class="header" id="hdr">
+  <div class="logo">
+    <span class="logo-name">Mountain Shadow</span>
+    <span class="logo-sub">Resort · Igatpuri</span>
+  </div>
+  <div class="header-right">
+    <a href="https://wa.me/919356184521?text=Hi%20Mountain%20Shadow%20Resort%2C%20I%20would%20like%20to%20place%20a%20room%20service%20order." target="_blank" class="btn-wa" aria-label="Order on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.089.538 4.05 1.478 5.762L0 24l6.372-1.462A11.935 11.935 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.903 0-3.68-.51-5.204-1.4l-.37-.218-3.784.869.895-3.683-.24-.381A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <span class="lbl">Order via WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<!-- ░░ HERO ░░ -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-img" id="heroBg" role="img" aria-label="Restaurant ambiance"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Mountain Shadow Resort &nbsp;·&nbsp; Pardevi Hills, Igatpuri</p>
+    <h1 class="hero-title">In Room <em>Dining</em></h1>
+    <p class="hero-tagline">Curated flavours, delivered to your retreat with warmth and grace</p>
+    <a href="#menu-anchor" class="hero-cta">
+      Explore the Menu
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 13l5 5 5-5M7 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ░░ HOURS ░░ -->
+<div class="hours-bar" role="complementary" aria-label="Dining hours">
+  <div class="hours-inner">
+    <div class="hrs-item">
+      <span class="hrs-lbl">Breakfast</span>
+      <span class="hrs-time">8:00 AM – 10:30 AM</span>
+    </div>
+    <div class="hrs-sep" aria-hidden="true"></div>
+    <div class="hrs-item">
+      <span class="hrs-lbl">Lunch</span>
+      <span class="hrs-time">1:00 PM – 3:00 PM</span>
+    </div>
+    <div class="hrs-sep" aria-hidden="true"></div>
+    <div class="hrs-item">
+      <span class="hrs-lbl">High-Tea</span>
+      <span class="hrs-time">3:00 PM – 7:00 PM</span>
+    </div>
+    <div class="hrs-sep" aria-hidden="true"></div>
+    <div class="hrs-item">
+      <span class="hrs-lbl">Dinner</span>
+      <span class="hrs-time">7:30 PM – 10:40 PM</span>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ CATEGORY NAV ░░ -->
+<div class="cat-nav-wrap" id="menu-anchor">
+  <nav class="cat-nav" id="catNav" aria-label="Menu categories"></nav>
+</div>
+
+<!-- ░░ SEARCH ░░ -->
+<div class="search-wrap">
+  <div class="search-box">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35" stroke-linecap="round"/></svg>
+    <input type="search" class="search-input" id="srch" placeholder="Search the menu…" aria-label="Search menu items">
+  </div>
+</div>
+
+<!-- ░░ MENU ░░ -->
+<div class="menu-wrap" id="menuWrap"></div>
+
+<!-- ░░ NO RESULTS ░░ -->
+<div class="no-results" id="noRes" role="status" aria-live="polite">
+  <p class="no-results-title">Nothing found</p>
+  <p class="no-results-sub">Try a different keyword</p>
+</div>
+
+<!-- ░░ FOOTER ░░ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="ft-brand">
+      <div class="ft-logo">Mountain Shadow</div>
+      <span class="ft-logo-sub">Resort · Pardevi Hills, Igatpuri</span>
+      <div class="ft-divider"></div>
+      <p class="ft-tagline">Where the mountains meet your table.<br>Every meal, a memory.</p>
+    </div>
+    <div>
+      <p class="ft-col-title">Find Us</p>
+      <p class="ft-text">279/2, Tringalwadi Dam Rd<br>Pardevi, Igatpuri<br>Maharashtra 422402</p>
+    </div>
+    <div>
+      <p class="ft-col-title">Contact</p>
+      <p class="ft-text">
+        <a href="tel:+919356184521" class="ft-link">+91 93561 84521</a><br>
+        <a href="tel:+919529633889" class="ft-link">+91 95296 33889</a><br>
+        <a href="mailto:info@mountainshadow.in" class="ft-link">info@mountainshadow.in</a>
+      </p>
+    </div>
+    <div>
+      <p class="ft-col-title">Online</p>
+      <p class="ft-text">
+        <a href="https://www.mountainshadow.in" target="_blank" rel="noopener" class="ft-link">mountainshadow.in</a><br><br>
+        <a href="https://instagram.com/mountainshadowresort" target="_blank" rel="noopener" class="ft-link">@mountainshadowresort</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="ft-bot-text">© 2024 Mountain Shadow Resort. All rights reserved.</span>
+    <span class="ft-bot-text">Pictures shown are for illustration purpose only. T&amp;C apply.</span>
+  </div>
+</footer>
+
+<!-- ░░ FLOAT WHATSAPP ░░ -->
+<a href="https://wa.me/919356184521?text=Hi%20Mountain%20Shadow%20Resort%2C%20I%20would%20like%20to%20place%20a%20room%20service%20order." target="_blank" rel="noopener" class="float-wa" aria-label="Order now via WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.089.538 4.05 1.478 5.762L0 24l6.372-1.462A11.935 11.935 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.903 0-3.68-.51-5.204-1.4l-.37-.218-3.784.869.895-3.683-.24-.381A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  <span class="lbl">Order Now</span>
+</a>
+
+<script>
+// ─── MENU DATA ───────────────────────────────────────────────────
+const MENU = [
+  {
+    id:'breakfast',label:'Breakfast',
+    eyebrow:'Morning Service · 8:00 AM – 10:30 AM',
+    title:['Breakfast','Favourites'],
+    tagline:'Rise and dine amidst the mountain mist',
+    items:[
+      {n:'Poha',d:'Flattened rice tempered with mustard seeds, turmeric, curry leaves, and fresh coriander',p:115},
+      {n:'Upma',d:'Semolina cooked with seasonal vegetables, mustard, and curry leaves',p:115},
+      {n:'Misal Pav',d:'Spiced sprouted moth bean curry with pav and crunchy farsan',p:139,b:['spicy']},
+      {n:'Tava Aloo / Paneer Paratha',d:'Whole wheat flatbread stuffed with spiced potato or cottage cheese, served with curd',p:139},
+      {n:'Puri Bhaji',d:'Deep fried puffy bread with spiced potato curry',p:139},
+      {n:'Chole Bhature',d:'Fluffy fried bread paired with robust spiced chickpea curry',p:199,b:['pop']},
+      {n:'Daal Pakwan',d:'Crispy flatbread with Sindhi-style lentil curry and chutneys',p:199},
+      {n:'Dosa',d:'Crispy fermented rice and lentil crepe — Paper, Masala, or Cheese',p:149,b:['pop']},
+      {n:'Uttapa',d:'Thick savory rice pancake with onion, tomato, and herbs',p:149},
+      {n:'Idli',d:'Steamed fermented rice cakes with sambar and coconut chutney',p:179},
+      {n:'Medu Wada',d:'Crispy lentil doughnuts served with sambar and chutney',p:179},
+    ]
+  },
+  {
+    id:'soup',label:'Soup',
+    eyebrow:'Warm Beginnings',
+    title:['Soul-warming','Soups'],
+    tagline:'Begin your meal with something deeply nourishing',
+    items:[
+      {n:'Cheddar Cheese Soup',d:'Velvety cheese broth with a rich and comforting finish',p:215,b:['chef']},
+      {n:'Khaw Suey Soup',d:'Burmese-inspired coconut milk broth with crispy condiments',p:200,b:['chef']},
+      {n:'Manchow Soup',d:'Robust Indo-Chinese broth with vegetables and crispy noodles',p:184,b:['pop']},
+      {n:'Hot and Sour Soup',d:'Classic tangy peppery vegetable broth with silken texture',p:190,b:['spicy']},
+      {n:'Lemon Coriander Soup',d:'Light and refreshing clear broth with citrus and fresh herbs',p:190},
+      {n:'Mexican Tortilla Soup',d:'Smoky tomato broth with crispy tortilla strips and peppers',p:220,b:['spicy']},
+      {n:'Cream of Tomato Soup',d:'Velvety tomato purée enriched with cream and fragrant basil',p:200,b:['pop']},
+      {n:'Veg Clear Soup',d:'Delicate clear broth with seasonal vegetables and herbs',p:184},
+      {n:'Tomato Basil Soup',d:'Sun-ripened tomatoes blended with fresh basil and olive oil',p:210,b:['chef']},
+    ]
+  },
+  {
+    id:'starters',label:'Starters',
+    eyebrow:'Mini Munchers',
+    title:['Artisan','Starters'],
+    tagline:'Small bites crafted with big intention',
+    items:[
+      {n:'Spring Rolls',d:'Crispy rolls filled with seasoned vegetables and glass noodles, with sweet chilli dip',p:359},
+      {n:'Corn Horn Khapad',d:'Crispy Rajasthani-style corn crackers with tangy accompaniments',p:349},
+      {n:'Soya Chaap',d:'Marinated soya pieces grilled to smoky perfection',p:349,b:['pop']},
+      {n:'Choice of Tikka',d:'Paneer, Malai, Achari, or Lasooni — marinated and charcoal grilled',p:399,b:['chef']},
+      {n:'Mushroom Galouthi Kebab',d:'Melt-in-the-mouth minced mushroom kebabs with aromatic spices',p:399,b:['chef']},
+      {n:'Tandoori Aloo',d:'Whole baby potatoes marinated and roasted in the tandoor',p:279},
+      {n:'Patota Wedges with Garlic Sauce',d:'Rustic potato wedges baked until crisp, with roasted garlic aioli',p:399},
+      {n:'Tandoori Stuffed Mushroom',d:'Large mushroom caps stuffed with herb-spiced filling, tandoor roasted',p:349},
+      {n:'Aloo Khajoor Ke Kebab',d:'Delicate potato and date croquettes with a sweet-savory depth',p:359,b:['chef']},
+      {n:'BBQ Paneer & Pineapple',d:'Smoky barbecue-glazed cottage cheese with caramelised pineapple',p:399,b:['pop']},
+      {n:'Jalapeño Cheese Popper',d:'Golden fried jalapeños stuffed with a creamy melting cheese blend',p:399,b:['spicy']},
+      {n:'Momos',d:'Steamed dumplings with spiced vegetable filling and house chutney',p:399,b:['pop']},
+      {n:'Mini Sliders (Bruschetta)',d:'Toasted brioche-style sliders with bruschetta and balsamic glaze',p:349},
+      {n:'Nachos',d:'Crispy tortilla chips with salsa, guacamole, sour cream, and jalapeños',p:349},
+      {n:'Cheese Cherry Pineapple',d:'Elegant three-bite skewers of aged cheese, cherry, and pineapple',p:349},
+      {n:'Cheese Chilli Toast',d:'Artisan toast crowned with melted cheese and green chilli',p:259,b:['spicy']},
+      {n:'Peanut Masala',d:'Roasted peanuts tossed with spices, onion, and fresh herbs',p:249},
+      {n:'Peri Peri Fries',d:'Crispy golden fries dusted with peri peri spice blend',p:229,b:['spicy']},
+      {n:'Cheese Fries',d:'Hand-cut fries smothered in rich melted cheese sauce',p:229},
+      {n:'Paneer Kurkure',d:'Crunchy cottage cheese bites in a crisp spiced batter',p:359},
+    ]
+  },
+  {
+    id:'hitea',label:'Hi-Tea',
+    eyebrow:'Afternoon Service · 3:00 PM – 7:00 PM',
+    title:['Afternoon','High-Tea'],
+    tagline:'Indulgences perfect for the mountain afternoon',
+    items:[
+      {n:'Mix Veg Pakora',d:'Seasonal vegetables in a light spiced gram flour batter, deep fried',p:189},
+      {n:'Onion Bhaji',d:'Classic crispy onion fritters with coriander and green chilli',p:189},
+      {n:'Paneer Pakora',d:'Cottage cheese in herbed gram flour batter, fried golden',p:349},
+      {n:'Cheese Pakora',d:'Melting cheese encased in a crispy spiced batter',p:399,b:['pop']},
+      {n:'Classic Maggi',d:'The beloved noodle dish, simply prepared with original masala',p:179},
+      {n:'Masala Vegetable Maggi',d:'Noodles tossed with fresh vegetables and aromatic spices',p:219},
+      {n:'Cheese Maggi',d:'Creamy melted cheese folded through perfectly cooked noodles',p:229,b:['pop']},
+      {n:'Vegetable Sandwiches',d:'Layered with garden-fresh vegetables and house-made spreads',p:219},
+      {n:'Veg Grilled Sandwich',d:'Grilled until golden on the outside, soft and flavourful within',p:229},
+      {n:'Veg Grilled Cheese Sandwich',d:'Generous cheese melted between grilled bread with vegetables',p:249},
+      {n:'Cheese Focaccia Sandwich',d:'House-baked focaccia with cheese, herbs, and roasted vegetables',p:299,b:['chef']},
+      {n:'Coleslaw Sandwich',d:'Creamy coleslaw on soft bread with crisp lettuce and tomato',p:229},
+      {n:'Bread Butter',d:'Freshly baked bread served with premium butter',p:110},
+      {n:'Bread Butter Jam',d:'Artisan bread with butter and house-made fruit preserves',p:110},
+      {n:'Pav Bhaji',d:"Mumbai's iconic spiced vegetable mash with toasted butter pav",p:289,b:['pop']},
+    ]
+  },
+  {
+    id:'continental',label:'Continental',
+    eyebrow:'European Artisan',
+    title:['Continental','Cuisine'],
+    tagline:'European classics reimagined in the mountain air',
+    items:[
+      {n:'Margherita Pizza / Cheese Pizza',d:'San Marzano tomato base, fresh mozzarella, fragrant basil',p:349},
+      {n:'BBQ Paneer Pizza',d:'Smoky barbecue base, cottage cheese, peppers, and caramelised onion',p:399,b:['pop']},
+      {n:'Hawaiian Pizza',d:'Tomato base with mozzarella and sweet golden pineapple',p:399},
+      {n:'Chocolate Calzone Pizza',d:'Folded pizza parcel with a decadent chocolate filling',p:399,b:['chef']},
+      {n:'Pasta',d:'Choice of Sauce — Classic Red, Creamy White, or Rosé Pink',p:399},
+      {n:'Spicy Fettuccine Pasta',d:'Wide ribbon pasta in a fiery tomato-chilli sauce',p:399,b:['spicy']},
+      {n:'Tagliatelle ai Funghi',d:'Silky pasta with wild mushrooms in white wine and cream',p:399,b:['chef']},
+      {n:'Penne in Marinara Sauce',d:'Penne with a slow-cooked San Marzano tomato marinara',p:399},
+      {n:'MSR Homemade Falafel with Pita',d:'House-crafted falafel with warm pita, hummus, olive oil, and salad',p:399,b:['chef','pop']},
+    ]
+  },
+  {
+    id:'oriental',label:'Oriental',
+    eyebrow:'Asian Pantry',
+    title:['Oriental','Kitchen'],
+    tagline:'Pan-Asian flavours with an artisan soul',
+    items:[
+      {n:'Kung Pao Paneer',d:'Wok-tossed cottage cheese with Sichuan peppercorns, peanuts, and dried chillies',p:399,b:['spicy']},
+      {n:'Manchurian Dry / Gravy',d:'Crispy vegetable balls in a tangy Indo-Chinese sauce',p:399,b:['pop']},
+      {n:'Paneer Satay with Peanut Sauce',d:'Grilled paneer skewers with creamy Thai-style peanut dip',p:410,b:['chef']},
+      {n:'Paneer Chilli Dry / Gravy',d:'Cottage cheese tossed with peppers and chillies in a bold sauce',p:410,b:['spicy']},
+      {n:'Honey Chilli Potato',d:'Crispy potatoes glazed with honey and chilli — perfect sweet-heat balance',p:349,b:['pop']},
+      {n:'Veg Crispy',d:'Assorted vegetables in a light tempura batter, wok tossed',p:343},
+      {n:'Mushroom Chilli',d:'Earthy mushrooms stir-fried with peppers in a fiery Indo-Chinese sauce',p:349,b:['spicy']},
+      {n:'Stir Fried Vegetables',d:'Seasonal vegetables wok-tossed with ginger, garlic, and soy',p:349},
+      {n:'Chinese Bhel',d:'Crispy noodles tossed with vegetables, sauces, and crunchy toppings',p:299},
+      {n:'Pad Thai Noodles',d:'Classic Thai rice noodles with tamarind, peanuts, and lime',p:343,b:['chef']},
+      {n:'Thai Curry with Steam Rice',d:'Aromatic Red or Green Thai coconut milk curry with seasonal vegetables',p:419,b:['chef','pop']},
+      {n:'Malaysian Curry',d:'Rich and fragrant South-East Asian coconut curry',p:419,b:['chef']},
+      {n:'American Chopsey',d:'Crispy noodles with vegetables in sweet-sour sauce',p:399},
+      {n:'Hakka Noodles',d:'Classic Indo-Chinese stir-fried noodles with vegetables and soy',p:349,b:['pop']},
+      {n:'Triple Fried Rice',d:'Three-layered wok-fried rice served with combo gravy',p:399},
+      {n:'Fried Rice',d:'Garlic or Schezwan style wok-fried rice',p:349},
+      {n:'Combination Rice & Noodle',d:'The best of both worlds — fried rice alongside noodles',p:359},
+      {n:'Pan Fried Noodles',d:'Noodles pressed flat and pan-fried until crispy, served with sauce',p:359},
+      {n:'The Veg Pot Noodles',d:'Comforting ramen noodles in a rich vegetable broth',p:419,b:['chef']},
+      {n:'The Veg Pot Rice',d:'Fragrant rice slow-cooked in an aromatic broth with seasonal vegetables',p:419,b:['chef']},
+    ]
+  },
+  {
+    id:'maincourse',label:'Main Course',
+    eyebrow:'Indian Heritage',
+    title:['Main','Course'],
+    tagline:'Regional Indian classics, made with heirloom recipes',
+    items:[
+      {n:'Paneer Butter Masala',d:'Cottage cheese in a velvety tomato-cashew sauce with cream',p:399,b:['pop']},
+      {n:'Paneer Tikka Masala',d:'Chargrilled paneer in a smoky, spiced onion-tomato masala',p:399,b:['pop']},
+      {n:'Paneer Lababdhar',d:'Slow-cooked cottage cheese in a rich buttery onion-cream gravy',p:399,b:['chef']},
+      {n:'Sev Bhaji',d:'Gujarat-style tomato curry topped with crispy sev',p:289},
+      {n:'Veg Diwani Handi',d:'Mixed vegetables slow-cooked in a sealed handi with aromatic spices',p:399},
+      {n:'Aloo Rassewala',d:'Light Punjabi-style potato curry perfect with puri or roti',p:289},
+      {n:'Kadhai Paneer',d:'Wok-cooked paneer with peppers and whole spices — bold and rustic',p:399,b:['pop']},
+      {n:'Kaju Curry',d:'Whole cashews simmered in a royal saffron-cream gravy',p:399,b:['chef']},
+      {n:'Aloo Jeera Anardana',d:'Potatoes tempered with cumin and pomegranate seeds',p:349},
+      {n:'Vilaiti Mix Veg Curry',d:'A rich medley of seasonal vegetables in a robust North Indian masala',p:399},
+      {n:'Methi Malai Mutter',d:'Green peas and fenugreek in a delicate cream and spice sauce',p:399},
+      {n:'Saag Paneer / Aloo',d:'Seasonal spinach curry with cottage cheese or potato',p:349},
+      {n:'Veg Maratha',d:'Maharashtrian-style spiced vegetable preparation',p:399,b:['chef']},
+      {n:'Veg Kolhapuri',d:'Fiery Kolhapuri masala with mixed vegetables — bold and aromatic',p:399,b:['spicy']},
+      {n:'Dal Makhani',d:'Overnight slow-cooked black lentils with butter and cream',p:349,b:['pop']},
+      {n:'Dal Fry',d:'Yellow lentils tempered with ghee, cumin, and fried garlic',p:349},
+      {n:'Gujarati Daal',d:'Sweet-tangy toor dal with Gujarati tempering and peanuts',p:349},
+      {n:'Dal Tadka',d:'Lentils finished with a robust desi ghee and spice tadka',p:299},
+      {n:'Kadi Pakoda',d:'Yoghurt-besan kadhi with soft pakoda fritters',p:299},
+      {n:'Rajasthani Kadi',d:'Tangy Rajasthani-style gram flour kadhi',p:299},
+      {n:'Soya Kheema',d:'Minced soya cooked with onions, tomatoes, and whole spices',p:349},
+      {n:'Dal Khichda',d:'Comforting lentil and broken wheat porridge, tempered with ghee',p:349},
+      {n:'Jeera Rice',d:'Fragrant basmati tossed with whole cumin and desi ghee',p:229},
+      {n:'Steam Rice',d:'Perfectly cooked long-grain basmati',p:229},
+      {n:'Veg Dum Biryani',d:'Slow-cooked layered biryani with saffron and fried onions',p:349,b:['chef','pop']},
+      {n:'Vegetable Pulao',d:'Aromatic basmati cooked with seasonal vegetables and whole spices',p:289},
+      {n:'Curd Rice',d:'Cooling South Indian-style rice tempered with mustard and curry leaves',p:229},
+      {n:'Khichdi Kadi',d:'Wholesome moong dal khichdi served with tangy kadhi',p:399},
+    ]
+  },
+  {
+    id:'breads',label:'Breads',
+    eyebrow:'From the Tandoor',
+    title:['Artisan','Breads'],
+    tagline:'Warm from the tandoor, made to perfection',
+    items:[
+      {n:'Tawa Roti / Fulka',d:'Thin whole wheat flatbread cooked on a griddle',p:40},
+      {n:'Missi Roti',d:'Spiced gram flour and wheat flatbread with fresh herbs',p:49},
+      {n:'Tandoori Roti',d:'Whole wheat bread cooked in the blazing tandoor',p:49},
+      {n:'Laccha Paratha',d:'Multi-layered flaky flatbread with a distinctive spiralled texture',p:99,b:['pop']},
+      {n:'Butter Naan',d:'Leavened bread brushed with golden butter, straight from the tandoor',p:110,b:['pop']},
+      {n:'Cheese Naan',d:'Stuffed with melted cheese and herbs, charred beautifully',p:159,b:['pop']},
+      {n:'Garlic Naan',d:'Aromatic garlic-topped naan with fresh coriander',p:149},
+      {n:'Garlic Cheese Naan',d:'The ultimate naan — garlic, cheese, and fresh herbs combined',p:199,b:['chef']},
+      {n:'Tandoori Aloo / Gobhi Kulcha',d:'Stuffed flatbread with spiced potato or cauliflower',p:169},
+      {n:'Paneer Kulcha',d:'Leavened bread stuffed generously with spiced cottage cheese',p:189},
+      {n:'Romali Khakra',d:'Thin handkerchief-style bread, crisped to perfection',p:229},
+    ]
+  },
+  {
+    id:'salads',label:'Salads',
+    eyebrow:'Garden Fresh',
+    title:['Fresh','Salads'],
+    tagline:'Crisp, colourful, and nourishing',
+    items:[
+      {n:'Cold Pasta Salad',d:'Chilled pasta with seasonal vegetables, herbs, and vinaigrette',p:220},
+      {n:'Green Salad',d:"Farmer's greens with cucumber, tomato, and house dressing",p:170},
+      {n:'Moong Sprout Salad',d:'Protein-rich sprouts tossed with lemon, spices, and fresh herbs',p:199},
+      {n:'Veg Caesar Salad',d:'Crisp romaine with house Caesar dressing and artisan croutons',p:340,b:['chef']},
+      {n:'Watermelon Cheese Salad',d:'Fresh watermelon with feta-style cheese, mint, and balsamic',p:220,b:['chef','pop']},
+    ]
+  },
+  {
+    id:'desserts',label:'Desserts',
+    eyebrow:'Sweet Endings',
+    title:['Artisan','Desserts'],
+    tagline:'A sweet finale to your mountain dining experience',
+    items:[
+      {n:'Orange Chocolate Mousse',d:'Silken dark chocolate mousse infused with fresh orange zest',p:339,b:['chef']},
+      {n:'Panna Cotta',d:'Italian set cream dessert with a seasonal fruit coulis',p:339,b:['chef']},
+      {n:'Tiramisu',d:'Classic coffee-soaked ladyfinger dessert with mascarpone cream',p:339,b:['pop']},
+      {n:'Brownie with Ice Cream',d:'Warm fudge brownie with vanilla bean ice cream',p:259,b:['pop']},
+      {n:'Gulab Jamun',d:'Soft milk-solid dumplings soaked in saffron-rose sugar syrup',p:139},
+      {n:'Choice of Ice Cream',d:'Assorted premium ice cream flavours',p:115},
+      {n:'Moong Daal Halwa',d:'Slow-cooked mung lentil halwa with cardamom and dry fruits',p:179},
+    ]
+  },
+  {
+    id:'drinks',label:'Drinks',
+    eyebrow:'Beverages & Mocktails',
+    title:['Drinks &','Mocktails'],
+    tagline:'Refreshing sips for every mood',
+    items:[
+      {n:'Bottled Water',d:'Chilled mineral water',p:40},
+      {n:'Soda',d:'Plain soda water',p:59},
+      {n:'Softdrink',d:'Sprite, Thums Up, or Coca Cola',p:90},
+      {n:'Tea',d:'Freshly brewed masala or ginger tea',p:69},
+      {n:'Coffee',d:'Hot filtered coffee',p:92},
+      {n:'Cold Coffee',d:'Chilled blended coffee with milk',p:229,b:['pop']},
+      {n:'Fresh Juices',d:'Freshly pressed Watermelon, Pineapple, or Orange',p:210},
+      {n:'Shakes',d:'Creamy shakes — Vanilla, Strawberry, Chocolate, or Banana',p:229,b:['pop']},
+      {n:'Fresh Lime Water',d:'Zesty freshly squeezed lime with water',p:69},
+      {n:'Fresh Lime Soda',d:'Refreshing lime and soda — sweet, salted, or mixed',p:90},
+      {n:'Iced Tea',d:'Chilled brewed tea with lemon and mint',p:115},
+      {n:'Green Tea',d:'Premium Japanese-style green tea',p:69},
+      {n:'── Mocktails ──',d:'',p:null,divider:true},
+      {n:'Mojito',d:'Lime, mint, and sugar with sparkling soda — the classic mocktail',p:210,b:['pop']},
+      {n:'Blue Lagoon',d:'Tropical blue mocktail with a citrus twist',p:210},
+      {n:'Pinacolada',d:'Creamy pineapple and coconut blended mocktail',p:240},
+      {n:'Tickled Red',d:'Vibrant red berry mocktail with a refreshing finish',p:210},
+      {n:'Milk Shake',d:'Vanilla, Strawberry, or Chocolate',p:210},
+    ]
+  },
+  {
+    id:'sides',label:'Sides',
+    eyebrow:'Alongside Your Meal',
+    title:['Sides &','Accompaniments'],
+    tagline:'The perfect companions to complete your meal',
+    items:[
+      {n:'Butter Milk',d:'Chilled spiced buttermilk with curry leaves and ginger',p:90},
+      {n:'Lassi',d:'Sweet or Salted yoghurt drink, thick and creamy',p:150,b:['pop']},
+      {n:'Raita',d:'Boondi, Cucumber, or Mixed Vegetable yoghurt raita',p:110},
+      {n:'Plain Curd',d:'Set fresh yoghurt',p:110},
+      {n:'Masala Papad',d:'Crispy papad with onion, tomato, and chilli — Fried or Roasted',p:110},
+      {n:'Roasted Papad',d:'Light roasted papad with a smoky crunch',p:69},
+      {n:'Fried Papad',d:'Deep-fried crispy papad',p:69},
+      {n:'Ice Bucket',d:'Fresh ice for your drinks',p:90},
+    ]
+  },
+];
+
+// ─── BUILD CATEGORY NAV ──────────────────────────────────────────
+const catNav = document.getElementById('catNav');
+MENU.forEach((cat, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'cat-btn' + (i === 0 ? ' active' : '');
+  btn.dataset.id = cat.id;
+  btn.textContent = cat.label;
+  btn.addEventListener('click', () => {
+    const el = document.getElementById(cat.id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  catNav.appendChild(btn);
+});
+
+// ─── BUILD MENU SECTIONS ─────────────────────────────────────────
+const wrap = document.getElementById('menuWrap');
+
+function makeBadge(code) {
+  if (code === 'chef') return '<span class="badge b-chef">★ Chef\'s Pick</span>';
+  if (code === 'pop')  return '<span class="badge b-pop">♦ Popular</span>';
+  if (code === 'spicy')return '<span class="badge b-spicy">🌶 Spicy</span>';
+  return '';
+}
+
+MENU.forEach((cat, ci) => {
+  const sec = document.createElement('section');
+  sec.className = 'menu-section';
+  sec.id = cat.id;
+  sec.setAttribute('aria-label', cat.label);
+
+  const divHtml = ci > 0
+    ? `<div class="sec-divider" aria-hidden="true"><div class="div-line"></div><span class="div-gem">✦</span><div class="div-line"></div></div>` : '';
+
+  sec.innerHTML = `
+    ${divHtml}
+    <div class="sec-header">
+      <span class="sec-eyebrow">${cat.eyebrow}</span>
+      <h2 class="sec-title">${cat.title[0]} <em>${cat.title[1]}</em></h2>
+      <p class="sec-tagline">${cat.tagline}</p>
+    </div>
+    <div class="menu-grid" id="grid-${cat.id}"></div>
+  `;
+  wrap.appendChild(sec);
+
+  const grid = document.getElementById('grid-' + cat.id);
+  cat.items.forEach(item => {
+    if (item.divider) {
+      const d = document.createElement('div');
+      d.className = 'grid-divider';
+      d.innerHTML = `<span>${item.n.replace(/[─]/g,'').trim()}</span>`;
+      grid.appendChild(d);
+      return;
+    }
+    const el = document.createElement('div');
+    el.className = 'menu-item';
+    el.dataset.search = item.n.toLowerCase() + ' ' + (item.d || '').toLowerCase();
+
+    const badges = (item.b || []).map(makeBadge).join('');
+
+    el.innerHTML = `
+      <div class="item-body">
+        <div class="item-top">
+          <div class="veg-dot" title="Vegetarian" aria-label="Vegetarian"></div>
+          <span class="item-name">${item.n}</span>
+        </div>
+        ${item.d ? `<p class="item-desc">${item.d}</p>` : ''}
+        ${badges ? `<div class="item-badges">${badges}</div>` : ''}
+      </div>
+      <div class="item-price-wrap">
+        <span class="item-price">₹${item.p}</span>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+});
+
+// Add notes after menu
+const notesEl = document.createElement('div');
+notesEl.innerHTML = `
+<div class="notes-card" role="note">
+  <p class="notes-title">Please Note</p>
+  <div class="note-row">Room Service Charges @ 15% extra applicable on all orders</div>
+  <div class="note-row">GST 5% additional on the total bill</div>
+  <div class="note-row">Food preparation time minimum 25 minutes</div>
+  <div class="note-row">Room service preparation time 40 minutes</div>
+  <div class="note-row">Order once placed cannot be cancelled</div>
+</div>
+`;
+wrap.appendChild(notesEl);
+
+// ─── HEADER SCROLL EFFECT ────────────────────────────────────────
+const hdr = document.getElementById('hdr');
+const heroBg = document.getElementById('heroBg');
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  hdr.classList.toggle('scrolled', y > 60);
+  // Parallax hero
+  if (y < window.innerHeight) {
+    heroBg.style.transform = `scale(1.06) translateY(${y * 0.22}px)`;
+  }
+}, { passive: true });
+
+// ─── INTERSECTION: FADE IN ITEMS ─────────────────────────────────
+const fadeObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const items = entry.target.querySelectorAll('.menu-item:not(.in)');
+    items.forEach((item, i) => {
+      setTimeout(() => item.classList.add('in'), i * 28);
+    });
+    fadeObs.unobserve(entry.target);
+  });
+}, { threshold: 0.04 });
+
+document.querySelectorAll('.menu-section').forEach(s => fadeObs.observe(s));
+
+// ─── ACTIVE NAV ON SCROLL ────────────────────────────────────────
+const navBtns = document.querySelectorAll('.cat-btn');
+const sections = document.querySelectorAll('.menu-section');
+
+const navObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const id = entry.target.id;
+    navBtns.forEach(btn => {
+      const active = btn.dataset.id === id;
+      btn.classList.toggle('active', active);
+      if (active) btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+  });
+}, { threshold: 0.25, rootMargin: '-110px 0px -40% 0px' });
+
+sections.forEach(s => navObs.observe(s));
+
+// ─── SEARCH ──────────────────────────────────────────────────────
+const srch = document.getElementById('srch');
+const noRes = document.getElementById('noRes');
+
+srch.addEventListener('input', () => {
+  const q = srch.value.toLowerCase().trim();
+  let total = 0;
+
+  document.querySelectorAll('.menu-section').forEach(sec => {
+    const items = sec.querySelectorAll('.menu-item');
+    let vis = 0;
+    items.forEach(item => {
+      const match = !q || (item.dataset.search || '').includes(q);
+      item.classList.toggle('hidden', !match);
+      if (match) vis++;
+    });
+    total += vis;
+    sec.style.display = vis === 0 && q ? 'none' : '';
+  });
+
+  noRes.classList.toggle('show', total === 0 && q !== '');
+});
+</script>
+</body>
+</html>
